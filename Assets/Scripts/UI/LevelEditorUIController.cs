@@ -1,4 +1,5 @@
 ﻿using LevelEditor;
+using LevelEditor.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,7 +27,7 @@ namespace UI
         [Header("Prefabs")]
         [SerializeField] private Image imgTemplate;
 
-        private Cell[,] grid;
+        [SerializeField] private Cell[,] grid;
 
         private LevelEditorController levelEditorController;
 
@@ -63,7 +64,7 @@ namespace UI
                 for (var x = 0; x <= boundX; x++)
                 {
                     Vector3 nextPosition;
-
+                    grid[x, y] = null;
                     if (x == 0 && y == 0)
                     {
                         nextPosition = lastPosition;                        
@@ -79,7 +80,8 @@ namespace UI
 
                     var imgTransform = img.transform;
                     imgTransform.localPosition = nextPosition;
-                    
+                    img.GetComponent<ClickActionUiController>().x = x;
+                    img.GetComponent<ClickActionUiController>().y = y;
                     img.name =  y +"_"+ x +"_cell" ;
                     
                     
@@ -109,11 +111,38 @@ namespace UI
 
             //call level Editor to generate the object
             Map map = levelEditorController.generateMap(int.Parse(inputX.text), int.Parse(inputY.text),
-                terrainType.itemImage.sprite);
+                terrainType.itemImage.sprite.name);
 
             Debug.Log(map);
 
             return map;
+        }
+
+        public void manageCellContent(int x, int y, Button activeButton)
+        {
+            if (activeButton.name.Contains("Box"))
+            {
+                grid[x, y] = new Cell("Box", "grey");
+            }else if (activeButton.name.Contains("Point"))
+            {
+                grid[x, y] = new Cell("Point", "grey");
+            }else if (activeButton.name.Contains("Player"))
+            {
+                grid[x, y] = new Cell("Player", "default");
+            }else if (activeButton.name.Contains("Wall"))
+            {
+                grid[x, y] = new Cell("Wall", "red");
+            }else if (activeButton.name.Contains("Delete"))
+            {
+                grid[x, y] = null;
+            }
+        }
+
+
+        public void saveLevelEditorMap()
+        {
+            levelEditorController.updateMap(grid);
+            levelEditorController.saveActualMap();
         }
     }
 }

@@ -1,33 +1,35 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Cell
+namespace LevelEditor.Models
 {
-    private string type;
-    private string color;
-
-    public Cell(string type, string color)
+    [Serializable]
+    public class Cell
     {
-        this.type = type;
-        this.color = color;
-    }
+        [SerializeField] private string type;
+        [SerializeField] private string color;
 
-    public string Type
-    {
-        get { return type; }
-        set { type = value; }
-    }
+        public Cell(string type, string color)
+        {
+            this.type = type;
+            this.color = color;
+        }
 
-    public string Color
-    {
-        get { return color; }
-        set { color = value; }
-    }
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
 
-    public override string ToString()
-    {
-        return string.Format("Type: {0}, Color: {1}, Type: {2}, Color: {3}", type, color, Type, Color);
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Type: {0}, Color: {1}, Type: {2}, Color: {3}", type, color, Type, Color);
+        }
     }
 }

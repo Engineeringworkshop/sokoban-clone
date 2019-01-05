@@ -200,7 +200,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2464794587089122606}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614631757}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58647a16a9093cf4d81b122acc8e8dc6, type: 3}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 138029264}
   - component: {fileID: 138029263}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: PlayerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,12 +285,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614631757}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2464794587089122607}
+        m_MethodName: setActiveButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 138029263}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 249769330}
   - component: {fileID: 249769329}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: PointButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,12 +414,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614631757}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2464794587089122607}
+        m_MethodName: setActiveButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 249769329}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1030,12 +1030,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576944684}
   m_CullTransparentMesh: 0
---- !u!1 &614631757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1474386559571395435, guid: 714b6544b86d0af499523271d4b2336c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2464794587089122606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636628200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 7018493416652191236, guid: b1dfaff848c22044aa5e2ba9a8481cff,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7018493416652191236, guid: b1dfaff848c22044aa5e2ba9a8481cff,
         type: 3}
@@ -1207,11 +1201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1947651610}
+      objectReference: {fileID: 122552645}
     - target: {fileID: 7018493416652191236, guid: b1dfaff848c22044aa5e2ba9a8481cff,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: loadLevel
+      value: saveLevelEditorMap
       objectReference: {fileID: 0}
     - target: {fileID: 7018493416652191236, guid: b1dfaff848c22044aa5e2ba9a8481cff,
         type: 3}
@@ -1830,7 +1824,7 @@ GameObject:
   - component: {fileID: 1486333151}
   - component: {fileID: 1486333150}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: DeleteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1896,12 +1890,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614631757}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2464794587089122607}
+        m_MethodName: setActiveButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1486333150}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1983,7 +1977,7 @@ GameObject:
   - component: {fileID: 1774680589}
   - component: {fileID: 1774680588}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BoxButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,12 +2043,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614631757}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2464794587089122607}
+        m_MethodName: setActiveButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1774680588}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2356,7 +2350,7 @@ GameObject:
   - component: {fileID: 1922285986}
   - component: {fileID: 1922285985}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: WallButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2422,12 +2416,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614631757}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2464794587089122607}
+        m_MethodName: setActiveButton
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1922285985}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2924,5 +2918,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: BoxButton
+      value: 
+      objectReference: {fileID: 1774680588}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: WallButton
+      value: 
+      objectReference: {fileID: 1922285985}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: PlayerButton
+      value: 
+      objectReference: {fileID: 138029263}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: PointButton
+      value: 
+      objectReference: {fileID: 249769329}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: DeleteButton
+      value: 
+      objectReference: {fileID: 1486333150}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: BoxSprite
+      value: 
+      objectReference: {fileID: 21300016, guid: b98533a3e541e844b9b9a911eee183b3,
+        type: 3}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: WallSprite
+      value: 
+      objectReference: {fileID: 21300008, guid: b98533a3e541e844b9b9a911eee183b3,
+        type: 3}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: PointSprite
+      value: 
+      objectReference: {fileID: 21300130, guid: b98533a3e541e844b9b9a911eee183b3,
+        type: 3}
+    - target: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+        type: 3}
+      propertyPath: PlayerSprite
+      value: 
+      objectReference: {fileID: 21300152, guid: b98533a3e541e844b9b9a911eee183b3,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 984595659906527882, guid: 714b6544b86d0af499523271d4b2336c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 714b6544b86d0af499523271d4b2336c, type: 3}
+--- !u!114 &2464794587089122607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6546776172570412371, guid: 714b6544b86d0af499523271d4b2336c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2464794587089122606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af92afe8e801ff4aa4e2c35336caf73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
