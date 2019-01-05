@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2325260800997037228}
   - component: {fileID: 9127722950902825449}
   - component: {fileID: 4884166757821326380}
+  - component: {fileID: 6546776172570412371}
   m_Layer: 0
   m_Name: levelEditor
   m_TagString: Untagged
@@ -54,5 +55,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58647a16a9093cf4d81b122acc8e8dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputX: {fileID: 0}
+  inputY: {fileID: 0}
+  terrainType: {fileID: 0}
+  createUi: {fileID: 0}
+  mapUi: {fileID: 0}
+  generatePanel: {fileID: 0}
+  imgTemplate: {fileID: 0}
+--- !u!114 &6546776172570412371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474386559571395435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af92afe8e801ff4aa4e2c35336caf73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

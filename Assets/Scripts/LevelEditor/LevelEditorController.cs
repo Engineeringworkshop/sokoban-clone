@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class LevelEditorController : MonoBehaviour
+namespace LevelEditor
 {
-    // Start is called before the first frame update
-    void Start()
+    public class LevelEditorController : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private Map generatedMap;
+
+        public Map generateMap(int xSize, int ySize, Sprite backgroundTerrain)
+        {
+            generatedMap = new Map(xSize, ySize, backgroundTerrain);
+
+            return generatedMap;
+        }
     }
 }
