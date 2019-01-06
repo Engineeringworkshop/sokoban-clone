@@ -6,15 +6,32 @@ namespace LevelEditor.Models
     [Serializable]
     public class Cell
     {
+        [SerializeField] private int x;
+        [SerializeField] private int y;
         [SerializeField] private string type;
         [SerializeField] private string color;
 
-        public Cell(string type, string color)
+
+
+        public Cell(int x, int y,string type, string color)
         {
+            this.x = x;
+            this.y = y;
             this.type = type;
             this.color = color;
         }
 
+        public int X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+
+        public int Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
         public string Type
         {
             get { return type; }

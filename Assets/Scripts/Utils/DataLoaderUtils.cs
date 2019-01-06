@@ -12,34 +12,38 @@ namespace Utils
 
         public List<Map> LoadData()
         {
-            return getData(GameDataLevelsFilePath);
+            return getData();
         }
 
-        public List<Map> getData(string path)
+        public List<Map> getData()
         {
-            var filePath = Path.Combine(Application.streamingAssetsPath, path);
-
+            FileInfo[] filesInfo = getFiles();
             var actualMaps = new List<Map>();
-            var map = loadGameData("filename" + DataExtension);
 
-            actualMaps.Add(map);
+            for (int i = 0; i < filesInfo.Length; i++)
+            {
+                var map = loadGameData(filesInfo[i].FullName);
+
+                actualMaps.Add(map);
+            }
+
+         
 
             return actualMaps;
         }
 
 
-        public Map loadGameData(string fileName)
+        public Map loadGameData(string file)
         {
-            var filePath = Application.dataPath + GameDataLevelsFilePath + fileName;
             Map map = null;
-            if (File.Exists(filePath))
+            if (File.Exists(file))
             {
-                var dataAsJson = File.ReadAllText(filePath);
+                var dataAsJson = File.ReadAllText(file);
                 map = JsonUtility.FromJson<Map>(dataAsJson);
             }
             else
             {
-                Debug.LogError("File doesnt exist" + filePath);
+                Debug.LogError("File doesnt exist" + file);
             }
 
             return map;
@@ -63,7 +67,6 @@ namespace Utils
         {
             var info = new DirectoryInfo(Application.dataPath + GameDataLevelsFilePath);
             var filesInfo = info.GetFiles("level_*.json");
-            Debug.Log(filesInfo);
             return filesInfo;
         }
     }

@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+namespace Utils
 {
-
-    public void loadLevel(string level) {
-        Debug.Log("LEVEL" + level);
-        SceneManager.LoadScene(level);
-    }
-
-    public void quitGame()
+    public class LevelManager : MonoBehaviour
     {
-        Application.Quit();
+
+        public void loadLevel(string level) {
+            SceneManager.LoadScene(level);
+        }
+
+        public void quitGame()
+        {
+            Application.Quit();
+        }
     }
 }

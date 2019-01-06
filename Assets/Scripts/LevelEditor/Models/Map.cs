@@ -1,26 +1,30 @@
 ﻿using System;
+using Boo.Lang;
 using UnityEngine;
 
 namespace LevelEditor.Models
 {
     [Serializable]
-    public class Map {
-    
+    public class Map
+    {
         [SerializeField] private int xSize;
         [SerializeField] private int ySize;
 
         [SerializeField] private string backgroundTerrain;
 
-        [SerializeField] private Cell[,] grid; //FIX don't support json
+        [SerializeField] public Cell[] cells;
 
-        internal Map() {}
-    
+
+        internal Map()
+        {
+        }
+
         internal Map(int xSize, int ySize, string backgroundTerrain)
         {
-            this.xSize = xSize;
-            this.ySize = ySize;
-            this.backgroundTerrain = backgroundTerrain;
-            grid = new Cell[this.xSize, this.ySize];
+            XSize = xSize;
+            YSize = ySize;
+            BackgroundTerrain = backgroundTerrain;
+            cells = new Cell[XSize * YSize];
         }
 
         public int XSize
@@ -41,15 +45,10 @@ namespace LevelEditor.Models
             set { backgroundTerrain = value; }
         }
 
-        public Cell[,] Grid
-        {
-            get { return grid; }
-            set { grid = value; }
-        }
 
         public override string ToString()
         {
-            return string.Format("XSize: {0}, YSize: {1}, BackgroundTerrain: {2}, Grid: {3}, XSize: {4}, YSize: {5}, BackgroundTerrain: {6}, Grid: {7}", xSize, ySize, backgroundTerrain, grid, XSize, YSize, BackgroundTerrain, Grid);
+            return string.Format("XSize: {0}, YSize: {1}, BackgroundTerrain: {2}, Cells: {3}, XSize: {4}, YSize: {5}, BackgroundTerrain: {6}", xSize, ySize, backgroundTerrain, cells, XSize, YSize, BackgroundTerrain);
         }
     }
 }

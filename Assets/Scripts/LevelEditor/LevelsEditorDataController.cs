@@ -1,4 +1,5 @@
-﻿using LevelEditor.Models;
+﻿using Boo.Lang;
+using LevelEditor.Models;
 using Utils;
 
 namespace LevelEditor
@@ -13,11 +14,9 @@ namespace LevelEditor
             dataLoaderUtils = new DataLoaderUtils();
         }
 
-        public Map getAllMaps()
+        public List<Map> getAllMaps()
         {
-            var map = new Map();
-
-            return map;
+           return dataLoaderUtils.LoadData();
         }
         
         public Map getMapNyName()

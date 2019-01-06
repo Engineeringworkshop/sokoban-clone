@@ -35,24 +35,23 @@ namespace UI
         
         private void Start()
         {
+            grid = null;
             levelEditorController = FindObjectOfType<LevelEditorController>();
         }
 
 
         public void generateUiMap()
         {
-            var generateMap = getMapData();
-
-            if (generateMap == null) return;
+            getMapData();
+            if (grid == null) return;
 
             createUi.enabled = false;
             mapUi.enabled = true;
-            instantiateMapUI(generateMap);
+            instantiateMapUI();
         }
 
-        private void instantiateMapUI(Map generateMap)
+        private void instantiateMapUI()
         {
-            grid = generateMap.Grid;
 
             var boundX = grid.GetUpperBound(0);
             var boundY = grid.GetUpperBound(1);
@@ -90,7 +89,7 @@ namespace UI
             }
         }
 
-        private Map getMapData()
+        private void getMapData()
         {
             Debug.Log(string.Format("<color='green'>{0},{1},{2}</color>",
                 inputX.text, inputY.text, terrainType.value));
@@ -99,39 +98,37 @@ namespace UI
             {
                 Debug.Log(string.Format("<color='red'>{0},{1} Wrong values</color>",
                     inputX.text, inputY.text));
-                return null;
+                return;
             }
 
             if (int.Parse(inputX.text) < 0 || int.Parse(inputY.text) < 0)
             {
                 Debug.Log(string.Format("<color='red'>{0},{1} Wrong values</color>",
                     inputX.text, inputY.text));
-                return null;
+                return;
             }
 
             //call level Editor to generate the object
-            Map map = levelEditorController.generateMap(int.Parse(inputX.text), int.Parse(inputY.text),
+            grid = levelEditorController.generateMap(int.Parse(inputX.text), int.Parse(inputY.text),
                 terrainType.itemImage.sprite.name);
 
-            Debug.Log(map);
 
-            return map;
         }
 
         public void manageCellContent(int x, int y, Button activeButton)
         {
             if (activeButton.name.Contains("Box"))
             {
-                grid[x, y] = new Cell("Box", "grey");
+                grid[x, y] = new Cell(x, y,"Box", "grey");
             }else if (activeButton.name.Contains("Point"))
             {
-                grid[x, y] = new Cell("Point", "grey");
+                grid[x, y] = new Cell(x, y,"Point", "grey");
             }else if (activeButton.name.Contains("Player"))
             {
-                grid[x, y] = new Cell("Player", "default");
+                grid[x, y] = new Cell(x, y,"Player", "default");
             }else if (activeButton.name.Contains("Wall"))
             {
-                grid[x, y] = new Cell("Wall", "red");
+                grid[x, y] = new Cell(x, y,"Wall", "red");
             }else if (activeButton.name.Contains("Delete"))
             {
                 grid[x, y] = null;
