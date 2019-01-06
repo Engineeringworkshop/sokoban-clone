@@ -10,7 +10,9 @@ namespace UI
     {
         [SerializeField] private GameObject levelContentButtons;
         [SerializeField] private GameObject levelsPanel;
-        
+        [SerializeField] private GameObject gameButtonReset;
+        [SerializeField] private GameObject levelExtraPanel;
+        private GameUiController gameUiController;
         private LevelsController levelsController;
         private List<Map> maps;
 
@@ -22,6 +24,7 @@ namespace UI
             levelsController = new LevelsController();
             maps = levelsController.getAllLevelList();
             loadUiLevelButtons();
+            gameUiController = FindObjectOfType<GameUiController>();
         }
 
 
@@ -40,13 +43,16 @@ namespace UI
         public void generateLevel(Map map)
         {
             Cell[,] grid = levelsController.generateGrid(map);
-            loadPlayableLevel(grid);
+            loadPlayableLevel(grid, map.BackgroundTerrain);
         }
 
-        private void loadPlayableLevel(Cell[,] grid )
+        private void loadPlayableLevel(Cell[,] grid, string backgroundTerrain )
         {
            levelsPanel.SetActive(false);
-           
+           levelExtraPanel.SetActive(false);
+           gameButtonReset.SetActive(true);
+           gameUiController.generateGame(grid, backgroundTerrain);
+
         }
     }
 }

@@ -101,7 +101,7 @@ namespace UI
                 return;
             }
 
-            if (int.Parse(inputX.text) < 0 || int.Parse(inputY.text) < 0)
+            if (int.Parse(inputX.text) < 0 || int.Parse(inputY.text) < 0 || int.Parse(inputX.text) > 20 || int.Parse(inputY.text) > 20)
             {
                 Debug.Log(string.Format("<color='red'>{0},{1} Wrong values</color>",
                     inputX.text, inputY.text));

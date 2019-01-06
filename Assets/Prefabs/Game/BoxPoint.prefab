@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7441495199817196111}
   m_Layer: 0
   m_Name: BoxPoint
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.006570697, y: -0.045994103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.57037616, y: 0.7806343}
   m_EdgeRadius: 0
 --- !u!114 &7441495199817196111
 MonoBehaviour:
@@ -119,3 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277840dd28291b04ea9ce40b876b6bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteDonePoint: {fileID: 21300096, guid: b98533a3e541e844b9b9a911eee183b3, type: 3}
+  isFull: 0

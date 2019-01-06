@@ -1,18 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CheckPointController : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CheckPointController : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Sprite spriteDonePoint;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public bool isFull;
         
+        // Start is called before the first frame update
+        void Start()
+        {
+            isFull = false;
+        }
+
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+
+            if (!other.tag.Equals("Box")) return;
+            
+            GetComponent<SpriteRenderer>().sprite = spriteDonePoint;
+            isFull = true;
+            Destroy(other.gameObject);
+
+        }
     }
 }
